@@ -25,7 +25,7 @@ public class PlatformsController : ControllerBase
         return Ok(objResp);
     }
 
-    [HttpGet("{Id}", Name= "GetPlatformById")]
+    [HttpGet("{Id}", Name = "GetPlatformById")]
     public ActionResult<PlatformReadDto> GetPlatformById(int Id)
     {
         var platformItem = _mapper.Map<PlatformReadDto>(_platRepo.GetPlatformById(Id));
@@ -34,6 +34,18 @@ public class PlatformsController : ControllerBase
             return Ok(platformItem);
         }
         return NotFound($"Platform with id {Id} not found");
+    }
+
+    [HttpPost]
+    public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreateDto platformCreateDto)
+    {
+        var platformModel = _mapper.Map<Platform>(platformCreateDto);
+        _platRepo.CreatePlatform(platformModel);
+        _platRepo.SaveChanges();
+
+        var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
+
+        return CreatedAtRoute(nameof(GetPlatformById), new { Id = platformReadDto.Id }, platformReadDto);
     }
 
 }
