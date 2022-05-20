@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platforms-depl
+spec:
+  replicas: 1
+  #The *Selector* actually selects the template that would be used for creation
+  selector:
+    matchLabels:
+      app: platformservice
+  #The *template* section is for defining what is to be deployed i.e. the pod and container that is to be used
+  template:
+    metadata:
+      labels:
+        app: platformservice
+    spec:
+      containers:
+        - name: platformservice
+          image: onadebi/platformservice:latest
