@@ -17,3 +17,10 @@ spec:
       containers:
         - name: platformservice
           image: onadebi/platformservice:latest
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: "0.2"
+            limits:
+              memory: 512Mi
+              cpu: "1"
