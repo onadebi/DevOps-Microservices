@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj": {}
+    "c:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj": {
+    "c:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj",
+        "projectUniqueName": "c:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj",
         "projectName": "CommandsService",
-        "projectPath": "C:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj",
+        "projectPath": "c:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\CommandsService.csproj",
         "packagesPath": "C:\\Users\\Onadebi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\obj\\",
+        "outputPath": "c:\\Users\\Onadebi\\source\\repos\\DevOps\\Services\\CommandsService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

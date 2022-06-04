@@ -25,6 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseSwagger();
 app.UseSwaggerUI();
+Console.WriteLine($"--> CommandService Endpoint {app.Configuration["CommandService"]}");
 
 app.UseHttpsRedirection();
 

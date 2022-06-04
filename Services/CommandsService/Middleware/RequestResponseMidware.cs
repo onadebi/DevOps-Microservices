@@ -9,7 +9,8 @@ namespace CommandsService.Middleware
             this._next = _next;
         }
 
-        public async Task Invoke(HttpContext httpContext){
+        public async Task Invoke(HttpContext httpContext)
+        {
             var request = httpContext.Request;
 
             string reqMethod = request.Method.ToString();
@@ -18,6 +19,7 @@ namespace CommandsService.Middleware
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"{((char)9733).ToString()} [{reqMethod}] ==>> {reqUrl}");
 
+            Console.ForegroundColor = ConsoleColor.White;
             await _next(httpContext);
         }
     }
