@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platforms-depl
+  name: commands-depl
 spec:
   replicas: 1
   #The *Selector* actually selects the template that would be used for creation
   selector:
     matchLabels:
-      app: platformservice
+      app: commandservice
   #The *template* section is for defining what is to be deployed i.e. the pod and container that is to be used
   template:
     metadata:
       labels:
-        app: platformservice
+        app: commandservice
     spec:
       containers:
-        - name: platformservice
-          image: onadebi/platformservice:latest
+        - name: commandservice
+          image: onadebi/commandservice:latest
           resources:
             requests:
               memory: 512Mi
@@ -28,13 +28,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: platforms-clusterip-svc
+  name: commands-clusterip-svc
 spec:
   type: ClusterIP
   selector:
-    app: platformservice
+    app: commandservice
   ports:
-  - name: platformservice
+  - name: commandservice
     protocol: TCP
     port: 80
     targetPort: 80
