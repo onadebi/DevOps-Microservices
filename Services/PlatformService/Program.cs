@@ -10,7 +10,17 @@ builder.Services.AddControllers();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
-builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMem"));
+
+if (builder.Build().Environment.IsProduction())
+{
+    System.Console.WriteLine("--> Using Sql Server Db");
+    builder.Services.AddDbContext<AppDbContext>(options=> options.UseSqlServer(builder.Build().Configuration.GetConnectionString("PlatformsConn")));
+}
+else
+{
+    System.Console.WriteLine("--> Using InMem Db");
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMem"));
+}
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
