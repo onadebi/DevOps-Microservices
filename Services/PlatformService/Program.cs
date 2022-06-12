@@ -13,11 +13,13 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 if (builder.Environment.IsProduction())
 {
     System.Console.WriteLine("--> Using Sql Server Db");
+    System.Console.WriteLine($"--> {builder.Configuration.GetValue<string>("CommandService")}");
     builder.Services.AddDbContext<AppDbContext>(options=> options.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn")));
 }
 else
 {
     System.Console.WriteLine("--> Using InMem Db");
+    System.Console.WriteLine($"--> {builder.Configuration.GetValue<string>("CommandService")}");
     builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMem"));
 }
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
@@ -43,6 +45,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-PrebDb.PrepPopulation(app);
+PrebDb.PrepPopulation(app, app.Environment.IsProduction());
 
 app.Run();
