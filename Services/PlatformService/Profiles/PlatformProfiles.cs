@@ -7,8 +7,10 @@ namespace PlatformService.Profiles;
 public class PlatformProfiles : Profile
 {
     public PlatformProfiles()
-    {//source to target
+    {
+        //source -> target
         CreateMap<Platform, PlatformReadDto>();
         CreateMap<PlatformCreateDto, Platform>();
+        CreateMap<PlatformReadDto, PlatformPublishedDto>();
     }
 }
